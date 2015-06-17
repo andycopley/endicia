@@ -66,11 +66,12 @@ module Endicia
   def self.get_label(opts={})
     opts = defaults.merge(opts)
     opts[:Test] ||= "NO"
+    opts[:TestMode] ||= "NO"
     url = "#{label_service_url(opts)}/GetPostageLabelXML"
     insurance = extract_insurance(opts)
     handle_extended_zip_code(opts)
 
-    root_keys = :LabelType, :Test, :LabelSize, :ImageFormat, :ImageResolution
+    root_keys = :LabelType, :TestMode, :LabelSize, :ImageFormat, :ImageResolution
     root_attributes = extract(opts, root_keys)
     root_attributes[:LabelType] ||= "Default"
 
@@ -88,10 +89,12 @@ module Endicia
       end
     end
 
-    Rails.logger.info("BEP>")
-    Rails.logger.info(url)
-    Rails.logger.info(body)
-    Rails.logger.info("<BEP")
+    if opts[:Debug] == 'TRUE'
+      Rails.logger.info("DEBUG>")
+      Rails.logger.info(url)
+      Rails.logger.info(body)
+      Rails.logger.info("<DEBUG")
+    end
 
     result = self.post(url, :body => body)
     Endicia::Label.new(result).tap do |the_label|
