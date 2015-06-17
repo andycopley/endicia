@@ -89,6 +89,7 @@ module Endicia
     end
 
     Rails.logger.info("BEP>")
+    Rails.logger.info(url)
     Rails.logger.info(body)
     Rails.logger.info("<BEP")
 
