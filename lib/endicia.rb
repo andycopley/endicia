@@ -88,6 +88,10 @@ module Endicia
       end
     end
 
+    Rails.logger.info("BEP>")
+    Rails.logger.info(body)
+    Rails.logger.info("<BEP")
+
     result = self.post(url, :body => body)
     Endicia::Label.new(result).tap do |the_label|
       the_label.request_body = body.to_s
