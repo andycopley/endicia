@@ -3,6 +3,12 @@
 This gem allows you to connect to your Endicia API to print USPS labels. It is
 in no way meant to be exhaustive--fork away!
 
+== my alterations from Threadflips version
+
+Separates the Test setting from being a switch for test mode (ie real money) versus test server.
+Test remains the setting for test server, but I have now added the TestMode which now controls whether
+the labels produced are charged to your account or not.
+
 == Configuration
 
 If you're using Rails, you'll want an endicia.yml file in config, with:
@@ -12,6 +18,7 @@ If you're using Rails, you'll want an endicia.yml file in config, with:
     RequesterID: (any string for dev)
     PassPhrase: (any string for dev)
     Test: YES
+    TestMode: YES
   
   test:
     <<: *development
@@ -21,6 +28,7 @@ If you're using Rails, you'll want an endicia.yml file in config, with:
     RequesterID (string--you have to request this from Endicia)
     PassPhrase (string)
     Test: NO
+    TestMode: NO
 
 Additionally, you may want to set a few defaults like your address:
 
