@@ -9,6 +9,10 @@ Separates the Test setting from being a switch for test mode (ie real money) ver
 Test remains the setting for test server, but I have now added the TestMode which now controls whether
 the labels produced are charged to your account or not.
 
+== Update as of 0.2.2
+
+This is now configured to use the new sandbox API that Endicia offers. Contact them directly to generate a new sandbox account.
+
 == Configuration
 
 If you're using Rails, you'll want an endicia.yml file in config, with:

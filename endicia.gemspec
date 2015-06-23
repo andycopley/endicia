@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Mark Dickson"]
+  s.authors = ["Mark Dickson", "Andy Copley"]
   s.date = %q{2011-05-07}
   s.description = %q{Uses the Endicia API to create USPS postage labels. Requires account id, partner id, and passphrase. Exports to a variety of image types.}
   s.email = %q{mark@sitesteaders.com}
